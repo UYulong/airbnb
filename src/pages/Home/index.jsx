@@ -7,7 +7,7 @@ const Home = memo(() => {
     request.get({
       url: '/home/highscore'
     }).then(res => {
-      console.log(res);
+      // console.log(res);
     })
   })
 
