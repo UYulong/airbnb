@@ -1,18 +1,18 @@
-import React, { memo, useEffect } from 'react'
-import request from '@/services/request'
+import React, { memo } from 'react'
+import { HomeWrapper } from './style'
+import Banner from './components/banner'
 
 const Home = memo(() => {
-
-  useEffect(() => {
-    request.get({
-      url: '/home/highscore'
-    }).then(res => {
-      // console.log(res);
-    })
-  })
-
   return (
-    <div>Home</div>
+    <HomeWrapper>
+      {/* 轮播图 */}
+      <Banner />
+
+      {/* 内容区域 */}
+      <div className='content'>
+        content
+      </div>
+    </HomeWrapper>
   )
 })
 

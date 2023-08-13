@@ -49,7 +49,7 @@ const HeaderRight = memo(() => {
             </div>
           </div>
         )}
-      </div>˝
+      </div>
     </HeaderRightWrapper>
   )
 })
