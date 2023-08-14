@@ -3,8 +3,7 @@ import { HomeWrapper } from './style'
 import Banner from './components/banner'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { fetchGoodPriceListDataAction } from '@/store/features/home'
-import SectionTitle from '@/components/SectionTitle'
-import SectionRooms from '@/components/SectionRooms'
+import HomeSectionV1 from './components/home-sction-v1'
 
 const Home = memo(() => {
 
@@ -15,8 +14,9 @@ const Home = memo(() => {
   }, [dispatch])
 
   // 获取数据
-  const { goodPriceList } = useSelector((state) => ({
-    goodPriceList: state.home.goodPriceList
+  const { goodPriceList, highScoreList } = useSelector((state) => ({
+    goodPriceList: state.home.goodPriceList,
+    highScoreList: state.home.highScoreList
   }), shallowEqual)
 
   return (
@@ -26,10 +26,8 @@ const Home = memo(() => {
 
       {/* 内容区域 */}
       <div className='content'>
-        <div className="good-price">
-          <SectionTitle title={goodPriceList.title} />
-          <SectionRooms roomList={goodPriceList.list} />
-        </div>
+        <HomeSectionV1 itemData={goodPriceList} />
+        <HomeSectionV1 itemData={highScoreList} />
       </div>
     </HomeWrapper>
   )
