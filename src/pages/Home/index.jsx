@@ -15,10 +15,11 @@ const Home = memo(() => {
   }, [dispatch])
 
   // 获取数据
-  const { goodPriceList, highScoreList, discountList } = useSelector((state) => ({
+  const { goodPriceList, highScoreList, discountList, hotRecommendList } = useSelector((state) => ({
     goodPriceList: state.home.goodPriceList,
     highScoreList: state.home.highScoreList,
-    discountList: state.home.discountList
+    discountList: state.home.discountList,
+    hotRecommendList: state.home.hotRecommendList
   }), shallowEqual)
 
   return (
@@ -29,6 +30,7 @@ const Home = memo(() => {
       {/* 内容区域 */}
       <div className='content'>
         {isEmptyO(discountList) && <HomeSectionV2 itemData={discountList} />}
+        {isEmptyO(hotRecommendList) && <HomeSectionV2 itemData={hotRecommendList} />}
 
         <HomeSectionV1 itemData={goodPriceList} />
         <HomeSectionV1 itemData={highScoreList} />

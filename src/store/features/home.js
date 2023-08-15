@@ -1,4 +1,4 @@
-import { getGoodPriceList, getHighScoreList, getDiscountList } from "@/services/modules/home";
+import { getGoodPriceList, getHighScoreList, getDiscountList, getHotDestList } from "@/services/modules/home";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchGoodPriceListDataAction = createAsyncThunk('goodPrice', (payload, { dispatch }) => {
@@ -13,6 +13,10 @@ export const fetchGoodPriceListDataAction = createAsyncThunk('goodPrice', (paylo
   getDiscountList().then(res => {
     dispatch(changeDiscountListAction(res))
   })
+
+  getHotDestList().then(res => {
+    dispatch(changeHotRecommendListAction(res))
+  })
 })
 
 const homeSlice = createSlice({
@@ -22,6 +26,7 @@ const homeSlice = createSlice({
     goodPriceList: {},
     highScoreList: {},
     discountList: {},
+    hotRecommendList: {},
   },
 
   reducers: {
@@ -35,6 +40,10 @@ const homeSlice = createSlice({
 
     changeDiscountListAction(state, { payload }) {
       state.discountList = payload
+    },
+
+    changeHotRecommendListAction(state, { payload }) {
+      state.hotRecommendList = payload
     }
   },
 
@@ -48,6 +57,6 @@ const homeSlice = createSlice({
   // }
 })
 
-export const { changeGoodPriceListAction, changeHighScoreListAction, changeDiscountListAction } = homeSlice.actions
+export const { changeGoodPriceListAction, changeHighScoreListAction, changeDiscountListAction, changeHotRecommendListAction } = homeSlice.actions
 
 export default homeSlice.reducer

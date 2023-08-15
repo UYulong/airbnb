@@ -17,3 +17,9 @@ export const getDiscountList = () => {
     url: '/home/discount'
   })
 }
+
+export const getHotDestList = () => {
+  return request.get({
+    url: '/home/hotrecommenddest'
+  })
+}
