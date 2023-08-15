@@ -5,9 +5,11 @@ import { RootItemWrapper } from './style'
 import { Rating } from '@mui/material'
 
 const RootItem = memo((props) => {
-  const { itemData } = props
+  const { itemData, width = '25%' } = props
   return (
-    <RootItemWrapper verifyColor={itemData?.verify_info?.text_color || "#39576a"}>
+    <RootItemWrapper
+      verifycolor={itemData?.verify_info?.text_color || "#39576a"}
+      width={width}>
       <div className='inner'>
         <div className='cover'>
           <img src={itemData.picture_url} alt="" />

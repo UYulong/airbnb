@@ -11,3 +11,9 @@ export const getHighScoreList = () => {
     url: '/home/highScore'
   })
 }
+
+export const getDiscountList = () => {
+  return request.get({
+    url: '/home/discount'
+  })
+}
