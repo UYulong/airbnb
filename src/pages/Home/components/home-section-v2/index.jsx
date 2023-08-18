@@ -5,6 +5,7 @@ import SectionTitle from '@/components/SectionTitle'
 import SectionTabs from '@/components/SectionTabs'
 import SectionRooms from '@/components/SectionRooms'
 import { HomeSectionV2Wrapper } from './style'
+import SectionFooter from '@/components/SectionFooter'
 
 const HomeSectionV2 = memo((props) => {
   const { itemData } = props
@@ -21,6 +22,7 @@ const HomeSectionV2 = memo((props) => {
       <SectionTitle title={itemData?.title} subTitle={itemData?.subtitle} />
       <SectionTabs tabNames={tabNames} receiveTabs={handleReceiveName} />
       <SectionRooms roomList={itemData?.dest_list?.[name]} width='33.33%' />
+      <SectionFooter name={name} />
     </HomeSectionV2Wrapper>
   )
 })
