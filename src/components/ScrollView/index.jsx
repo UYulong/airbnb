@@ -1,5 +1,7 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
 import { ScrollViewWrapper } from './style'
+import IconArrowLeft from '@/assets/svg/icon-arrow-left'
+import IconArrowRight from '@/assets/svg/icon-arrow-right'
 
 const ScrollView = memo((props) => {
 
@@ -32,8 +34,16 @@ const ScrollView = memo((props) => {
 
   return (
     <ScrollViewWrapper>
-      {showLeft && <button onClick={e => moveEvent(false)}>左</button>}
-      {showRight && <button onClick={e => moveEvent(true)}>右</button>}
+      {showLeft && (
+        <div className="control left" onClick={e => moveEvent(false)}>
+          <IconArrowLeft />
+        </div>
+      )}
+      {showRight && (
+        <div className="control right" onClick={e => moveEvent(true)}>
+          <IconArrowRight />
+        </div>
+      )}
 
       <div className="scroll">
         <div className='content' ref={contentRef}>
