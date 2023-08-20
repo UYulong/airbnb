@@ -23,3 +23,9 @@ export const getHotDestList = () => {
     url: '/home/hotrecommenddest'
   })
 }
+
+export const getLongforList = () => {
+  return request.get({
+    url: '/home/longfor'
+  })
+}

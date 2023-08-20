@@ -6,6 +6,7 @@ import { fetchGoodPriceListDataAction } from '@/store/features/home'
 import HomeSectionV1 from './components/home-sction-v1'
 import HomeSectionV2 from './components/home-section-v2'
 import { isEmptyO } from '@/utils'
+import HomeLongfor from './components/home-longfor'
 
 const Home = memo(() => {
   // 派发事件，获取性价比数据
@@ -15,11 +16,12 @@ const Home = memo(() => {
   }, [dispatch])
 
   // 获取数据
-  const { goodPriceList, highScoreList, discountList, hotRecommendList } = useSelector((state) => ({
+  const { goodPriceList, highScoreList, discountList, hotRecommendList, longforList } = useSelector((state) => ({
     goodPriceList: state.home.goodPriceList,
     highScoreList: state.home.highScoreList,
     discountList: state.home.discountList,
-    hotRecommendList: state.home.hotRecommendList
+    hotRecommendList: state.home.hotRecommendList,
+    longforList: state.home.longforList
   }), shallowEqual)
 
   return (
@@ -29,6 +31,7 @@ const Home = memo(() => {
 
       {/* 内容区域 */}
       <div className='content'>
+        {isEmptyO(longforList) && <HomeLongfor itemData={longforList} />}
         {isEmptyO(discountList) && <HomeSectionV2 itemData={discountList} />}
         {isEmptyO(hotRecommendList) && <HomeSectionV2 itemData={hotRecommendList} />}
 
